@@ -1,0 +1,97 @@
+*{
+    margin: 0px;
+    padding: 0px;
+    list-style:none;
+    outline: none;
+    box-sizing: border-box
+}
+
+html, body {
+    height: 100%;
+}
+body{
+    background-color: #2f4050;
+    font-size: 13px;
+    color: #676a6c;
+}
+
+#wrapper{
+    width: 100%;
+}
+ul{
+    margin-top: 0;
+}
+.left_list li {
+    width: 15%;
+    position: relative;
+    display: block;
+}
+.left_list a{
+    height: 46px;
+    color: #a7b1c2;
+    font-weight: 600;
+    padding: 14px 20px 14px 25px;
+    text-align: center;
+    line-height: 46px;
+    text-decoration: none;
+
+}
+.li_hearder {
+    height: 156px;
+    background: #243747;
+}
+.li_hearder div{
+    padding-top: 54px;
+    margin-left: 30px;
+    color: #DFE4ED;
+    font-size: 15px;
+}
+.li_hearder div .welc{
+    display: block;
+    padding-top: 15px;
+    font-size: 20px;
+}
+
+
+.left_list a:hover{
+    color: #FFFF;
+    text-decoration: none;
+}
+
+.navbar{
+    width: 85%;
+    height: 8%;
+    position: absolute;
+    margin-bottom: 20px;
+    background: #f3f3f4;
+    top: 0px;
+    left: 15%;
+}
+.navbar .exit{
+    width: 15%;
+    height:8%;
+    position: absolute;
+    top: 20px;
+    right:0px;
+
+
+}
+.navbar a{
+    font-size: 15px;
+    color: #999c9e;
+    text-decoration: none;
+}
+.navbar a:hover{
+    color: #243747;
+    text-decoration: none;
+}
+
+
+.right{
+    width: 85%;
+    height: 92%;
+    background-color: #ffff;
+    position: absolute;
+    left: 15%;
+    top: 8%;
+}

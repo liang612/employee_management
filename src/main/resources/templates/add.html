@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>员工数据</title>
+    <link rel="stylesheet" type="text/css" th:href="@{css/list.css}">
+    <link rel="stylesheet" type="text/css" th:href="@{css/main.css}">
+</head>
+<body>
+<div th:replace="~{main::navbar}"></div>
+<div th:replace="~{main::item}"></div>
+<div class="right">
+    <form method="post" th:action="@{/emp}">
+        <!--发送put请求修改数据，
+            1、SpringMVC中配置HiddenHttpMethodFilter；2.0版本后需手动配置
+            2、页面创建一个post表单
+            3、创建input标签，name="_method" value值为我们需要的请求方式：put、delete
+
+            -->
+        <input type="hidden" name="_method" value="put" th:if="${empl!=null}">
+        <!--<input type="hidden" name="emplNum" th:if="${empl!=null}" th:value="empl.emplNum">-->
+        <div>
+            <label>员工编码：</label>
+            <!--获取Request域中的empl的值-->
+            <input name="emplNum" type="number" th:value="${empl!=null}? ${empl.emplNum}"/><br/>
+        </div>
+        <div>
+            <label>姓名：</label>
+            <input name="emplName" type="text" th:value="${empl!=null}?${empl.emplName}"/><br/>
+        </div>
+        <div>
+            <label>职务：</label>
+            <input name="duty" type="text" th:value="${empl!=null}?${empl.duty}"/><br/>
+        </div>
+        <div>
+            <label>年龄：</label>
+            <input name="age" type="number" th:value="${empl!=null}?${empl.age}"/><br/>
+        </div>
+        <div>
+            <label>性别：</label>
+            <input name="sex" type="text" th:value="${empl!=null}?${empl.sex}"/><br/>
+        </div>
+        <div>
+            <label>地址：</label>
+            <input name="address" type="text" th:value="${empl!=null}?${empl.address}"/><br/>
+        </div>
+        <input type="submit" th:value="${empl!=null}?'编辑':'添加'">
+    </form>
+</div>
+
+</body>
+</html>html>

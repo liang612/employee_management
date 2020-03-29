@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>员工列表</title>
+    <link rel="stylesheet" type="text/css"th:href="@{css/show.css}" >
+    <link rel="stylesheet" type="text/css" th:href="@{css/main.css}">
+</head>
+<body>
+<!--引入抽取的topbar-->
+<div th:replace="~{main::navbar}"></div>
+<div th:replace="~{main::item}"></div>
+<div class="right">
+    <div class="area_table">
+        <a class="button_add"  th:href="@{/emp}">添加用户</a>
+        <table class="table">
+            <tr>
+                <th>员工编号</th>
+                <th>姓名</th>
+                <th>职务</th>
+                <th>年龄</th>
+                <th>性别</th>
+                <th>地址</th>
+                <th></th>
+                <th></th>
+            </tr>
+            <!--emp：自定义的一个名字（相当于变量名），emps：Model的key值-->
+            <tr th:each="emp : ${emps}">
+                <!--小数点后面接实体类的属性名-->
+                <td th:text="${emp.emplNum}"></td>
+                <td th:text="${emp.emplName}"></td>
+                <td th:text="${emp.duty}"></td>
+                <td th:text="${emp.age}"></td>
+                <td th:text="${emp.sex}"></td>
+                <td th:text="${emp.address}"></td>
+                <td><a th:href="@{'/emp/'+${emp.emplNum}}">编辑</a></td>
+                <td>
+                    <form method="post" th:action="@{'/emp/'+${emp.emplNum}}">
+                        <input type="hidden" name="_method" value="delete">
+                        <button>删除</button>
+                    </form>
+                </td>
+                <!--<td><a th:href="">删除</a></td>-->
+            </tr>
+        </table>
+    </div>
+    <div class="find">
+        <h3>根据员工编号查找</h3>
+        <form method="get" th:action="@{/emp}">
+            <input type="number" name="emplNum" placeholder="请输入员工编号">
+            <input type="submit" value="查找">
+        </form>
+    </div>
+</div>
+
+</body>
+</html>
